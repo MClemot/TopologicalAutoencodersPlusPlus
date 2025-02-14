@@ -20,7 +20,7 @@
 
 #include <PersistenceDiagramWarmRestartAuction.h>
 #include <RipsPersistenceDiagram.h>
-#include <RipsPersistenceGenerators.h>
+#include <PairCellsWithOracle.h>
 
 #include <torch/torch.h>
 

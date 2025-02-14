@@ -10,7 +10,6 @@ ttk_add_base_library(topologicallyConstrainedDimensionReduction
   DEPENDS
     persistenceDiagramWarmRestartAuction
     ripsPersistenceDiagram
-    ripsPersistenceGenerators
 )
 
 if (TTK_ENABLE_TORCH)
