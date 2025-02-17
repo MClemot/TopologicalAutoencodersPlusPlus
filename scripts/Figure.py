@@ -79,7 +79,7 @@ def figure(file, method, size=500):
         tTKRipsPersistenceGenerators.Simplexmaximumdiameter = 1000.0
 
         if file == "K5":
-            special_k(tTKRipsPersistenceGenerators, renderView)
+            plot_K5(tTKRipsPersistenceGenerators, renderView)
         else:
             # create a new 'Threshold'
             threshold = Threshold(registrationName='Threshold1', Input=tTKRipsPersistenceGenerators)
@@ -138,7 +138,7 @@ def figure(file, method, size=500):
 
 
 
-def special_k(tTKRipsPersistenceGenerators, renderView):
+def plot_K5(tTKRipsPersistenceGenerators, renderView):
     # create a new 'Threshold'
     threshold4 = Threshold(registrationName='Threshold4', Input=tTKRipsPersistenceGenerators)
     threshold4.Scalars = ['CELLS', 'ClassIdentifier']
