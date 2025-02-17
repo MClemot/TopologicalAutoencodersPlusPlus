@@ -29,6 +29,11 @@ chmod +x install.sh
    sudo apt install -y python3-sklearn 
    sudo apt install -y git
    ```
+   
+   To enable the comparison with UMAP (and PCA, MDA, Isomap, t-SNE), do:
+   ```
+   pip install umap-learn
+   ```
 
 2. Download Torch
 
@@ -88,3 +93,28 @@ chmod +x install.sh
 
 ## Reproduce experiments
 
+1. To reproduce the comparison tables in the manuscript (figures 1, 13 and 14), run:
+
+   ```
+   python scripts/runComparison.py
+   ```
+   
+   You can specify the files to run with the option `-f` or `--files` and the methods to compare with the option `-m` or `--methods`, e.g.:
+   ```
+   python scripts/runComparison.py --files Twist COIL20-1 -m TopoAE TopoAE++
+   ```
+   
+   The files names to use are `3Clusters`, `Twist`, `K4`, `K5`, `COIL20-1`, `MoCap`, `SingleCell` and the available methods are listed below:
+
+   | Method name to use | Implementation |
+   |--------------------|----------------|
+   | PCA                | scikit-learn   |
+   | MDS                | scikit-learn   |
+   | Isomap             | scikit-learn   |
+   | LLE                | scikit-learn   |
+   | tSNE               | scikit-learn   |
+   | UMAP               | umap-learn     |
+   | TopoMap            | TTK            |
+   | TopoAE             | TTK            |
+   | TopoAE+W1          | TTK            |
+   | TopoAE++           | TTK            |

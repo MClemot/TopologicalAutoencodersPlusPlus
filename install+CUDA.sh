@@ -1,14 +1,22 @@
 #!/bin/bash
 
+# Dependencies
+
 sudo apt install -y cmake-qt-gui ninja-build libboost-system-dev libopengl-dev libxcursor-dev
 sudo apt install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools qttools5-dev qtxmlpatterns5-dev-tools libqt5x11extras5-dev libqt5svg5-dev qttools5-dev libqt5x11extras5-dev libqt5svg5-dev qtxmlpatterns5-dev-tools
 sudo apt install -y libcgal-dev
 sudo apt install -y python3-sklearn
 sudo apt install -y git
 
+pip install umap-learn
+
+# LibTorch
+
 wget https://download.pytorch.org/libtorch/cu121/libtorch-cxx11-abi-shared-with-deps-2.4.0%2Bcu121.zip
 unzip libtorch-cxx11-abi-shared-with-deps-2.4.0+cu121.zip
 rm libtorch-cxx11-abi-shared-with-deps-2.4.0+cu121.zip
+
+# ParaView installation
 
 git clone https://github.com/topology-tool-kit/ttk-paraview.git
 cd ttk-paraview
@@ -21,6 +29,8 @@ PV_PREFIX=`pwd`/../install
 export PATH=$PATH:$PV_PREFIX/bin
 export LD_LIBRARY_PATH=$PV_PREFIX/lib:$LD_LIBRARY_PATH
 export PYTHONPATH=$PV_PREFIX/lib/python3.11/site-packages
+
+# TTK installation
 
 cd ../../ttk-tcdr
 mkdir build

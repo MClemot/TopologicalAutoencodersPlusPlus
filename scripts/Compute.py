@@ -16,8 +16,8 @@ methods = dict()
 methods["TopoMap"] = "TopoMap (IEEE VIS 2020)"
 methods["TopoAE"] = "Autoencoder"
 methods["TopoAE1"] = "Autoencoder"
+methods["TopoAE+W1"] = "Autoencoder"
 methods["TopoAE++"] = "Autoencoder"
-methods["Carriere"] = "Autoencoder"
 
 skmethods = dict()
 skmethods["PCA"] = PCA(n_components=2)
@@ -49,7 +49,7 @@ def threshold_v(file):
     return .5
 
 def tries(method):
-    if method in ["TopoAE", "TopoAE1", "TopoAE++", "Carriere"]:
+    if method in ["TopoAE", "TopoAE1", "TopoAE++", "TopoAE+W1"]:
         return 10
     else:
         return 1
@@ -83,7 +83,7 @@ def setColumns(file, object):
 
 def setMethod(file, method, object):
     object.Method = methods[method]
-    if method in ["TopoAE", "TopoAE1", "TopoAE++", "Carriere"]:
+    if method in ["TopoAE", "TopoAE1", "TopoAE++", "TopoAE+W1"]:
         object.Numberofepochs = 1000
 
         if file == "SingleCell":
@@ -99,7 +99,7 @@ def setMethod(file, method, object):
             object.Lossfunction = 'Topological Autoencoder with dimension 1'
         elif method == "TopoAE++":
             object.Lossfunction = 'Asymmetric Cascade Autoencoder'
-        elif method == "Carriere":
+        elif method == "TopoAE+W1":
             object.Lossfunction = 'W1 regularization'
             if file == "MoCap":
                 object.Regularizationcoefficient = 10
