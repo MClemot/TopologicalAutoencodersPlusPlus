@@ -30,7 +30,7 @@ chmod +x install.sh
    sudo apt install -y git
    ```
    
-   To enable the comparison with UMAP (and PCA, MDA, Isomap, t-SNE), do:
+   To enable the comparison with UMAP (and PCA, MDS, Isomap, t-SNE), do:
    ```
    pip install umap-learn
    ```
@@ -104,7 +104,7 @@ chmod +x install.sh
    python scripts/runComparison.py --files Twist COIL20-1 -m TopoAE TopoAE++
    ```
    
-   The files names to use are `3Clusters`, `Twist`, `K4`, `K5`, `COIL20-1`, `MoCap`, `SingleCell` and the available methods are listed below:
+   The file names to use are `3Clusters`, `Twist`, `K4`, `K5`, `COIL20-1`, `MoCap` and `SingleCell` and the available methods are listed below:
 
    | Method name to use | Implementation |
    |--------------------|----------------|
@@ -118,3 +118,8 @@ chmod +x install.sh
    | TopoAE             | TTK            |
    | TopoAE+W1          | TTK            |
    | TopoAE++           | TTK            |
+
+2. Run a ParaView state.
+   ```
+   paraview states/SingleCell.pvsm
+   ```
