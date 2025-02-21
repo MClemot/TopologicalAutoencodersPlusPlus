@@ -12,6 +12,8 @@
 #include <Debug.h>
 #include <RipsPersistenceDiagramUtils.h>
 
+#include <set>
+
 namespace ttk::rpd {
 
   class PairCellsWithOracle : virtual public Debug {
@@ -41,7 +43,7 @@ namespace ttk::rpd {
     double bound {0.};
 
     std::map<Edge, id_t> edgeToIndex {};
-    std::vector<std::set<id_t, std::greater<id_t>>> graph {}; //std::greater to match the reverse co-lexicographic order used in Ripser
+    std::vector<std::set<id_t, std::greater<>>> graph {}; //std::greater to match the reverse co-lexicographic order used in Ripser
     std::vector<FiltratedEdge> edges {};
     std::vector<FiltratedTriangle> triangles {};
     std::vector<id_t> edgesIndices {};
