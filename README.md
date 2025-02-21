@@ -61,7 +61,7 @@ chmod +x install.sh
    cd ttk-paraview
    mkdir build
    cd build
-   cmake -DCMAKE_BUILD_TYPE=Release -DPARAVIEW_USE_PYTHON=ON -DPARAVIEW_INSTALL_DEVELOPMENT_FILES=ON -DCMAKE_INSTALL_PREFIX=../install ..
+   cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DPARAVIEW_USE_PYTHON=ON -DPARAVIEW_INSTALL_DEVELOPMENT_FILES=ON -DCMAKE_INSTALL_PREFIX=../install ..
    ninja install
    ```
    Set the following environment variable (replace `3.11` by your version of Python)
@@ -80,7 +80,7 @@ chmod +x install.sh
    cd build
    paraviewPath=`pwd`/../../ttk-paraview/install/lib/cmake/paraview-5.13
    torchPath=`pwd`/../../libtorch/share/cmake/Torch/
-   cmake -DCMAKE_INSTALL_PREFIX=../install -DParaView_DIR=$paraviewPath -DTorch_DIR=$torchPath ..
+   cmake -G Ninja -DCMAKE_INSTALL_PREFIX=../install -DParaView_DIR=$paraviewPath -DTorch_DIR=$torchPath ..
    ninja install
    ```
    Set the following environment variable (replace `3.11` by your version of Python)

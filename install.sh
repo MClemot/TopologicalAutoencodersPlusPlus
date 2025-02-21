@@ -22,7 +22,7 @@ git clone https://github.com/topology-tool-kit/ttk-paraview.git
 cd ttk-paraview
 mkdir build
 cd build
-cmake -DCMAKE_BUILD_TYPE=Release -DPARAVIEW_USE_PYTHON=ON -DPARAVIEW_INSTALL_DEVELOPMENT_FILES=ON -DCMAKE_INSTALL_PREFIX=../install ..
+cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DPARAVIEW_USE_PYTHON=ON -DPARAVIEW_INSTALL_DEVELOPMENT_FILES=ON -DCMAKE_INSTALL_PREFIX=../install ..
 ninja install
 
 PV_PREFIX=`pwd`/../install
@@ -37,7 +37,7 @@ mkdir build
 cd build
 paraviewPath=`pwd`/../../ttk-paraview/install/lib/cmake/paraview-5.13
 torchPath=`pwd`/../../libtorch/share/cmake/Torch/
-cmake -DCMAKE_INSTALL_PREFIX=../install -DParaView_DIR=$paraviewPath -DTorch_DIR=$torchPath ..
+cmake -G Ninja -DCMAKE_INSTALL_PREFIX=../install -DParaView_DIR=$paraviewPath -DTorch_DIR=$torchPath ..
 ninja install
 
 TTK_PREFIX=`pwd`/../install
