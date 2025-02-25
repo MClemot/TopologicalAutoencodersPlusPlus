@@ -6,13 +6,11 @@ This repository contains the code used for the manuscript referenced below.
 
 ## Installation
 
-Tested on Ubuntu 22.04.5 LTS. 
-
-Choose between the automatic installation with a script or the step-by-step installation.
+Choose between the automatic installation with a script (tested on Ubuntu 24.04 in a VirtualBox VM) or the step-by-step installation.
 
 ### Automatic installation
 
-Run the `install.sh` script (change by `install+CUDA.sh` if you own a CUDA-compatible device and want to use it):
+First, go to the root of this repository and run the `install.sh` script (change by `install+CUDA.sh` if you own a CUDA-compatible device and want to use it):
 ```
 chmod +x install.sh
 ./install.sh
@@ -26,7 +24,7 @@ chmod +x install.sh
    sudo apt install -y cmake-qt-gui ninja-build libboost-system-dev libopengl-dev libxcursor-dev
    sudo apt install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools qttools5-dev qtxmlpatterns5-dev-tools libqt5x11extras5-dev libqt5svg5-dev qttools5-dev libqt5x11extras5-dev libqt5svg5-dev qtxmlpatterns5-dev-tools 
    sudo apt install -y libcgal-dev
-   sudo apt install -y python3-sklearn 
+   sudo apt install -y python3-sklearn python3-pip
    sudo apt install -y git
    ```
    
@@ -64,12 +62,12 @@ chmod +x install.sh
    cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DPARAVIEW_USE_PYTHON=ON -DPARAVIEW_INSTALL_DEVELOPMENT_FILES=ON -DCMAKE_INSTALL_PREFIX=../install ..
    ninja install
    ```
-   Set the following environment variable (replace `3.11` by your version of Python)
+   Set the following environment variable (replace `3.12` by your version of Python)
    ```
    PV_PREFIX=`pwd`/../install
    export PATH=$PATH:$PV_PREFIX/bin
    export LD_LIBRARY_PATH=$PV_PREFIX/lib:$LD_LIBRARY_PATH
-   export PYTHONPATH=$PV_PREFIX/lib/python3.11/site-packages
+   export PYTHONPATH=$PYTHONPATH:$PV_PREFIX/lib/python3.12/site-packages
    ```
 
 4. Install TTK
@@ -83,12 +81,12 @@ chmod +x install.sh
    cmake -G Ninja -DCMAKE_INSTALL_PREFIX=../install -DParaView_DIR=$paraviewPath -DTorch_DIR=$torchPath ..
    ninja install
    ```
-   Set the following environment variable (replace `3.11` by your version of Python)
+   Set the following environment variable (replace `3.12` by your version of Python)
    ```
    TTK_PREFIX=`pwd`/../install
    export PV_PLUGIN_PATH=$TTK_PREFIX/bin/plugins/TopologyToolKit
    export LD_LIBRARY_PATH=$TTK_PREFIX/lib:$LD_LIBRARY_PATH
-   export PYTHONPATH=$PYTHONPATH:$TTK_PREFIX/lib/python3.11/site-packages
+   export PYTHONPATH=$PYTHONPATH:$TTK_PREFIX/lib/python3.12/site-packages
    ```
 
 ## Reproduce experiments
