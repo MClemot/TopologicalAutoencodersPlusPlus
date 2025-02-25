@@ -12,6 +12,9 @@ SmoothingIterations = 1
 
 def figure(file, method, size=500):
 
+    if not method in ttkmethods and not method in skmethods:
+        return
+
     # Create a new 'Render View'
     renderView = CreateView('RenderView')
     renderView.ViewSize = [size, size]

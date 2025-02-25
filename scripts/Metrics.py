@@ -16,9 +16,8 @@ metricId["RMSE"] = 11
 
 def computeMetrics(file, method, metricNames):
 
-    # ----------------------------------------------------------------
-    # setup the data processing pipelines
-    # ----------------------------------------------------------------
+    if not method in ttkmethods and not method in skmethods:
+        return [-1 for _ in metricNames]
 
     input = CSVReader(registrationName='input',
                       FileName=[inputpath + file + ".csv"])

@@ -96,12 +96,12 @@ chmod +x install.sh
 1. To reproduce the comparison tables in the manuscript (figures 1, 13 and 14), run:
 
    ```
-   python scripts/runComparison.py
+   python3 scripts/runComparison.py
    ```
    
    You can specify the files to run with the option `-f` or `--files` and the methods to compare with the option `-m` or `--methods`, e.g.:
    ```
-   python scripts/runComparison.py --files Twist COIL20-1 -m TopoAE TopoAE++
+   python3 scripts/runComparison.py --files Twist COIL20-1 -m TopoAE TopoAE++
    ```
    
    The file names to use are `3Clusters`, `Twist`, `K4`, `K5`, `COIL20-1`, `MoCap` and `SingleCell` and the available methods are listed below:
@@ -118,6 +118,11 @@ chmod +x install.sh
    | TopoAE             | TTK            |
    | TopoAE+W1          | TTK            |
    | TopoAE++           | TTK            |
+
+   This script will save:
+   * 2D renders of the projections of the different methods in `scripts_results/figures`
+   * the projections themselves in `scripts_results/data`
+   * a CSV file containing quality indicators in `scripts_results/metrics.csv`
 
 2. Run a ParaView state.
    ```

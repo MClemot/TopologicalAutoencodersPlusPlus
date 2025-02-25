@@ -2,7 +2,6 @@ import paraview
 import numpy as np
 from sklearn.decomposition import PCA
 from sklearn.manifold import MDS, Isomap, LocallyLinearEmbedding, TSNE
-from umap import UMAP
 import time
 import os
 
@@ -12,12 +11,12 @@ paraview.compatibility.minor = 13
 #### import the simple module from the paraview
 from paraview.simple import *
 
-methods = dict()
-methods["TopoMap"] = "TopoMap (IEEE VIS 2020)"
-methods["TopoAE"] = "Autoencoder"
-methods["TopoAE1"] = "Autoencoder"
-methods["TopoAE+W1"] = "Autoencoder"
-methods["TopoAE++"] = "Autoencoder"
+ttkmethods = dict()
+ttkmethods["TopoMap"] = "TopoMap (IEEE VIS 2020)"
+ttkmethods["TopoAE"] = "Autoencoder"
+ttkmethods["TopoAE1"] = "Autoencoder"
+ttkmethods["TopoAE+W1"] = "Autoencoder"
+ttkmethods["TopoAE++"] = "Autoencoder"
 
 skmethods = dict()
 skmethods["PCA"] = PCA(n_components=2)
@@ -25,12 +24,16 @@ skmethods["MDS"] = MDS(n_components=2)
 skmethods["Isomap"] = Isomap(n_components=2, n_neighbors=8)
 skmethods["LLE"] = LocallyLinearEmbedding(n_components=2)
 skmethods["tSNE"] = TSNE(n_components=2)
-skmethods["UMAP"] = UMAP(n_components=2)
+try:
+    from umap import UMAP
+    skmethods["UMAP"] = UMAP(n_components=2)
+except:
+    print("UMAP was not found and will be ignored")
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 inputpath = dir_path+"/../data/"
 savedatapath = dir_path+"/../scripts_results/data/"
-savefigurepath = dir_path+"/../scripts_results/figure/"
+savefigurepath = dir_path+"/../scripts_results/figures/"
 
 try:
     os.mkdir(dir_path+"/../scripts_results/")
@@ -82,7 +85,7 @@ def setColumns(file, object):
         object.InputColumns = ['Field 0', 'Field 1', 'Field 2']
 
 def setMethod(file, method, object):
-    object.Method = methods[method]
+    object.Method = ttkmethods[method]
     if method in ["TopoAE", "TopoAE1", "TopoAE++", "TopoAE+W1"]:
         object.Numberofepochs = 1000
 
@@ -127,9 +130,10 @@ def compute(file, method):
                        delimiter=',', header="\"ClusterId\", \"Component_0\",\"Component_1\"")
         else:
             np.savetxt(savedatapath + "{}_{}.csv".format(file, method), Y, delimiter=',', header="\"Component_0\",\"Component_1\"")
+        return t
 
     ### methods handled by TTK
-    else:
+    elif method in ttkmethods:
         # create a new 'CSV Reader'
         csv = CSVReader(registrationName='csv', FileName=[inputpath + file + ".csv"])
         csv.HaveHeaders = header(file)
@@ -164,5 +168,4 @@ def compute(file, method):
 
         SaveData(savedatapath + "{}_{}.csv".format(file, method), runs[best_id])
         t = times[best_id]
-
-    return t
+        return t

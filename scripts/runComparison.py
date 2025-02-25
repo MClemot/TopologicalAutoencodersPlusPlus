@@ -15,17 +15,10 @@ if __name__ == '__main__':
     parser.add_argument('-is', '--imagesize', nargs=1, default=500)
     args = parser.parse_args()
 
-    print(args)
-    print(args.files)
-    print(args.methods)
-
     if args.files == ["*"] or args.files is None:
         args.files = available_files
     if args.methods == ["*"] or args.methods is None:
         args.methods = available_methods
-
-    print(args.files)
-    print(args.methods)
 
     for file in args.files:
         for method in args.methods:
