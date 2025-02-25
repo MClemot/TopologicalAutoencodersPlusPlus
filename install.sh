@@ -2,7 +2,7 @@
 
 # Dependencies
 
-sudo apt install -y cmake-qt-gui ninja-build libboost-system-dev libopengl-dev libxcursor-dev
+sudo apt install -y cmake ninja-build libboost-system-dev libopengl-dev libxcursor-dev
 sudo apt install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools qttools5-dev qtxmlpatterns5-dev-tools libqt5x11extras5-dev libqt5svg5-dev qttools5-dev libqt5x11extras5-dev libqt5svg5-dev qtxmlpatterns5-dev-tools
 sudo apt install -y libcgal-dev
 sudo apt install -y python3-sklearn python3-pip
@@ -44,3 +44,5 @@ TTK_PREFIX=`pwd`/../install
 export PV_PLUGIN_PATH=$TTK_PREFIX/bin/plugins/TopologyToolKit
 export LD_LIBRARY_PATH=$TTK_PREFIX/lib:$LD_LIBRARY_PATH
 export PYTHONPATH=$PYTHONPATH:$TTK_PREFIX/lib/python3.12/site-packages
+
+cd ../..

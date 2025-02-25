@@ -13,7 +13,7 @@ Choose between the automatic installation with a script (tested on Ubuntu 24.04 
 First, go to the root of this repository and run the `install.sh` script (change by `install+CUDA.sh` if you own a CUDA-compatible device and want to use it):
 ```
 chmod +x install.sh
-./install.sh
+. ./install.sh
 ```
 
 ### Step-by-step installation 
@@ -36,7 +36,7 @@ chmod +x install.sh
 2. Download Torch
 
    First, go to the root of this repository.
-   Choose a version of LibTorch to download on https://pytorch.org/get-started/locally/. If you own a CUDA-compatible device and want to use it, download a CUDA version. Otherwise, download the CPU version. Note that we tested the installation with LibTorch 2.4.0 with CUDA 12.1.
+   Choose a version of LibTorch to download on https://pytorch.org/get-started/locally/. If you own a CUDA-compatible device and want to use it, download a CUDA version. Otherwise, download the CPU version. Note that the experiments reported in the manuscript were done with LibTorch 2.4.0 and CUDA 12.1.
    
    Example for the CPU version:
    ```
