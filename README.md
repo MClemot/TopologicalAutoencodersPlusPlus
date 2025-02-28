@@ -1,8 +1,6 @@
 # Topological Autoencoders++: Enhanced Cycle-Aware Dimensionality Reduction
 
-This repository contains the code used for the manuscript referenced below.
-
-*Topological Autoencoders++: Enhanced Cycle-Aware Dimensionality Reduction*
+This repository contains the code used for the manuscript [*Topological Autoencoders++: Enhanced Cycle-Aware Dimensionality Reduction*](https://arxiv.org/abs/2502.20215).
 
 ## Installation
 
