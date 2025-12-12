@@ -20,6 +20,7 @@ rm libtorch-cxx11-abi-shared-with-deps-2.4.0+cpu.zip
 
 git clone https://github.com/topology-tool-kit/ttk-paraview.git
 cd ttk-paraview
+git checkout 5.13.0
 mkdir build
 cd build
 cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DPARAVIEW_USE_PYTHON=ON -DPARAVIEW_INSTALL_DEVELOPMENT_FILES=ON -DCMAKE_INSTALL_PREFIX=../install ..
