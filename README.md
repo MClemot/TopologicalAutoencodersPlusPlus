@@ -1,10 +1,16 @@
 # Topological Autoencoders++: Fast and Accurate Cycle-Aware Dimensionality Reduction
 
-This repository contains the code used for the manuscript [*Topological Autoencoders++: Fast and Accurate Cycle-Aware Dimensionality Reduction*](https://arxiv.org/abs/2502.20215).
+This repository contains the code used for the manuscript [*Topological Autoencoders++: Fast and Accurate Cycle-Aware Dimensionality Reduction*](https://arxiv.org/abs/2502.20215) (to be published in IEEE TVCG).
+
+The method was integrated into [The Topology ToolKit](https://github.com/topology-tool-kit/ttk). See [this example](https://topology-tool-kit.github.io/examples/topoAEppTeaser/).
+
+![TAE++teaser](https://topology-tool-kit.github.io/img/gallery/topologicalAutoEncoderPlusPlus.jpg)
 
 ## Installation
 
-### Scripted installation
+You can choose either the scripted or step-by-step installation method.
+
+### Scripted installation for Ubuntu
 
 The following script was tested on a fresh installation of Ubuntu 24.04 in a VirtualBox VM. If you want to install on your own system, you probably should follow the step-by-step installation.
 
@@ -16,14 +22,14 @@ chmod +x install.sh
 . ./install.sh
 ```
 
-Change by `install+CUDA.sh` if you own a CUDA-compatible device and want to use it; however in this case you need to install CUDA drivers beforehand.
+Change by `install+CUDA.sh` if you own a CUDA-compatible device and want to use it (this is not required); however in this case you need to install CUDA drivers beforehand.
 
 The script will download all dependencies and compile both ParaView and TTK, which can take a while.
 
 ### Step-by-step installation 
 
-1. Install dependencies
-
+1. Install dependencies.
+   On Ubuntu:
    ```
    sudo apt install -y cmake ninja-build libboost-system-dev libopengl-dev libxcursor-dev
    sudo apt install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools qttools5-dev qtxmlpatterns5-dev-tools libqt5x11extras5-dev libqt5svg5-dev qttools5-dev libqt5x11extras5-dev libqt5svg5-dev qtxmlpatterns5-dev-tools 
@@ -106,9 +112,9 @@ The script will download all dependencies and compile both ParaView and TTK, whi
    python3 scripts/runComparison.py
    ```
    
-   You can specify the files to run with the option `-f` or `--files` and the methods to compare with the option `-m` or `--methods`, e.g.:
+   You can specify the files to run with the option `-f` or `--files` and the methods to compare with the option `-m` or `--methods`, for example:
    ```
-   python3 scripts/runComparison.py -f Twist COIL20-1 -m TopoAE TopoAE++
+   python3 scripts/runComparison.py -f COIL20-1 MoCap SingleCell -m TopoAE TopoAE++
    ```
    
    The file names to use are `3Clusters`, `Twist`, `K4`, `K5`, `COIL20-1`, `MoCap` and `SingleCell` and the available methods are listed below:
@@ -130,4 +136,6 @@ The script will download all dependencies and compile both ParaView and TTK, whi
    * 2D renders of the projections of the different methods in `scripts_results/figures`
    * the projections themselves in `scripts_results/data`
    * a CSV file containing quality indicators in `scripts_results/metrics.csv`
+
+Please note that TopoAE-based methods are non-deterministic. Therefore, the resulting projections and quality indicators may differ from those presented in the paper. 
 
