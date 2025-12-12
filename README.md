@@ -1,4 +1,4 @@
-# Topological Autoencoders++: Fast and Accurate Cycle-Aware Dimensionality Reduction
+# Topological Autoencoders++: Fast and Accurate Cycle-Aware Dimensionality Reduction (IEEE TVCG)
 
 This repository contains the code used for the manuscript [*Topological Autoencoders++: Fast and Accurate Cycle-Aware Dimensionality Reduction*](https://arxiv.org/abs/2502.20215) (to be published in IEEE TVCG).
 
